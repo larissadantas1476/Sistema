@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Colégio Cristal Norte — Estilos específicos da tela de cadastro
+   Complementa style.css (que já é carregado antes).
+   ========================================================================== */
+
+.signup-card {
+  width: min(100%, 560px);
+}
+
+.signup-body .login-card {
+  padding-bottom: 26px;
+}
+
+/* Linha com dois campos lado a lado */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Remove a margem inferior quando os campos estão em linha */
+.field-row .field-group {
+  margin-bottom: 13px;
+}
+
+/* Ajuste do link dentro do label "termos" */
+.remember-me .forgot-link {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+/* Responsividade */
+@media (max-width: 520px) {
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

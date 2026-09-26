@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cadastro no sistema escolar Colégio Cristal Norte."
+    />
+    <title>Colégio Cristal Norte | Cadastro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+
+  <body class="signup-body">
+    <!-- Camada decorativa de fundo -->
+    <div class="background-scene" aria-hidden="true">
+      <div class="scene-sky"></div>
+      <div class="scene-building scene-building--left"></div>
+      <div class="scene-building scene-building--right"></div>
+      <div class="scene-trees"></div>
+      <div class="scene-path"></div>
+    </div>
+
+    <main class="page-shell">
+      <section class="login-card signup-card" aria-labelledby="page-title">
+        <div class="brand-block">
+          <div class="brand-mark">
+            <img
+              src="imagem/logo.jpeg"
+              alt="Logo do Colégio Cristal Norte"
+              class="brand-logo"
+            />
+          </div>
+          <p class="brand-overline">Novo cadastro</p>
+          <h1 id="page-title">Criar sua conta</h1>
+          <p class="brand-subtitle">
+            Preencha os dados abaixo para acessar o sistema escolar
+          </p>
+        </div>
+
+        <div class="card-divider" aria-hidden="true"></div>
+
+        <form class="access-form" id="signupForm" novalidate>
+          <!-- ============ PERFIL ============ -->
+          <fieldset class="form-section">
+            <legend>Qual é o seu perfil?</legend>
+            <p class="section-description">
+              Escolha como você vai usar o sistema.
+            </p>
+
+            <div class="field-group">
+              <label for="signupProfile">Perfil de acesso</label>
+              <div class="select-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="12" cy="8" r="3.2" />
+                    <path d="M5.5 20c.6-3.4 2.8-5.2 6.5-5.2s5.9 1.8 6.5 5.2" />
+                  </svg>
+                </span>
+                <select
+                  id="signupProfile"
+                  name="profile"
+                  aria-describedby="signupProfileMessage"
+                  required
+                >
+                  <option value="" selected disabled>Selecione um perfil…</option>
+                  <option value="aluno">Aluno</option>
+                  <option value="responsavel">Responsável</option>
+                  <option value="professor">Professor</option>
+                  <option value="coordenador">Coordenador</option>
+                  <option value="diretor">Diretor</option>
+                </select>
+                <span class="select-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </span>
+              </div>
+              <p class="field-message" id="signupProfileMessage" role="alert"></p>
+            </div>
+          </fieldset>
+
+          <!-- ============ DADOS PESSOAIS ============ -->
+          <div class="credentials-section">
+            <div class="field-group">
+              <label for="signupName">Nome completo</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="12" cy="8" r="3.2" />
+                    <path d="M5.5 20c.6-3.4 2.8-5.2 6.5-5.2s5.9 1.8 6.5 5.2" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  id="signupName"
+                  name="name"
+                  autocomplete="name"
+                  placeholder="Digite seu nome completo"
+                  aria-describedby="signupNameMessage"
+                  required
+                />
+              </div>
+              <p class="field-message" id="signupNameMessage" role="alert"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="signupEmail">E-mail</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
+                </span>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="voce@email.com"
+                  aria-describedby="signupEmailMessage"
+                  required
+                />
+              </div>
+              <p class="field-message" id="signupEmailMessage" role="alert"></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="signupPhone">Telefone</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M6 3h3l2 5-2 1a12 12 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z" />
+                    </svg>
+                  </span>
+                  <input
+                    type="tel"
+                    id="signupPhone"
+                    name="phone"
+                    autocomplete="tel"
+                    placeholder="(11) 99999-9999"
+                    aria-describedby="signupPhoneMessage"
+                  />
+                </div>
+                <p class="field-message" id="signupPhoneMessage" role="alert"></p>
+              </div>
+
+              <div class="field-group">
+                <label for="signupBirth">Data de nascimento</label>
+                <div class="input-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M3 9h18M8 3v4M16 3v4" />
+                    </svg>
+                  </span>
+                  <input
+                    type="date"
+                    id="signupBirth"
+                    name="birth"
+                    aria-describedby="signupBirthMessage"
+                  />
+                </div>
+                <p class="field-message" id="signupBirthMessage" role="alert"></p>
+              </div>
+            </div>
+
+            <!-- Campos específicos por perfil -->
+            <div class="field-group" id="enrollmentGroup">
+              <label for="signupEnrollment" id="signupEnrollmentLabel">Matrícula</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="4" y="3" width="16" height="18" rx="2" />
+                    <path d="M8 7h8M8 11h8M8 15h5" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  id="signupEnrollment"
+                  name="enrollment"
+                  placeholder="Digite sua matrícula"
+                  aria-describedby="signupEnrollmentMessage"
+                />
+              </div>
+              <p class="field-message" id="signupEnrollmentMessage" role="alert"></p>
+            </div>
+
+            <div class="field-group" id="cpfGroup" hidden>
+              <label for="signupCpf">CPF</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="3" y="6" width="18" height="12" rx="2" />
+                    <path d="M7 10h2M11 10h2M15 10h2M7 14h10" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  id="signupCpf"
+                  name="cpf"
+                  placeholder="000.000.000-00"
+                  inputmode="numeric"
+                  maxlength="14"
+                  aria-describedby="signupCpfMessage"
+                />
+              </div>
+              <p class="field-message" id="signupCpfMessage" role="alert"></p>
+            </div>
+          </div>
+
+          <!-- ============ SENHA ============ -->
+          <div class="credentials-section">
+            <div class="field-group">
+              <label for="signupPassword">Senha</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="5" y="10" width="14" height="10" rx="2" />
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2" />
+                  </svg>
+                </span>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  name="password"
+                  autocomplete="new-password"
+                  placeholder="Mínimo de 6 caracteres"
+                  aria-describedby="signupPasswordMessage"
+                  required
+                />
+                <button
+                  class="password-toggle"
+                  id="signupPasswordToggle"
+                  type="button"
+                  aria-label="Mostrar senha"
+                  aria-pressed="false"
+                >
+                  <svg class="eye-icon eye-icon--visible" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2.5 12s3.2-5 9.5-5 9.5 5 9.5 5-3.2 5-9.5 5-9.5-5-9.5-5Z" />
+                    <circle cx="12" cy="12" r="2.5" />
+                  </svg>
+                  <svg class="eye-icon eye-icon--hidden" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m3 3 18 18M10.6 6.2A10.2 10.2 0 0 1 12 6c6.3 0 9.5 6 9.5 6a16 16 0 0 1-3.1 3.7M6.2 6.2C3.9 7.9 2.5 12 2.5 12s3.2 6 9.5 6c1.7 0 3.1-.4 4.3-1" />
+                    <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                  </svg>
+                </button>
+              </div>
+              <p class="field-message" id="signupPasswordMessage" role="alert"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="signupConfirm">Confirme a senha</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <rect x="5" y="10" width="14" height="10" rx="2" />
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2" />
+                  </svg>
+                </span>
+                <input
+                  type="password"
+                  id="signupConfirm"
+                  name="confirm"
+                  autocomplete="new-password"
+                  placeholder="Repita a senha"
+                  aria-describedby="signupConfirmMessage"
+                  required
+                />
+                <button
+                  class="password-toggle"
+                  id="signupConfirmToggle"
+                  type="button"
+                  aria-label="Mostrar senha"
+                  aria-pressed="false"
+                >
+                  <svg class="eye-icon eye-icon--visible" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2.5 12s3.2-5 9.5-5 9.5 5 9.5 5-3.2 5-9.5 5-9.5-5-9.5-5Z" />
+                    <circle cx="12" cy="12" r="2.5" />
+                  </svg>
+                  <svg class="eye-icon eye-icon--hidden" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m3 3 18 18M10.6 6.2A10.2 10.2 0 0 1 12 6c6.3 0 9.5 6 9.5 6a16 16 0 0 1-3.1 3.7M6.2 6.2C3.9 7.9 2.5 12 2.5 12s3.2 6 9.5 6c1.7 0 3.1-.4 4.3-1" />
+                    <path d="M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                  </svg>
+                </button>
+              </div>
+              <p class="field-message" id="signupConfirmMessage" role="alert"></p>
+            </div>
+
+            <div class="form-row">
+              <label class="remember-me">
+                <input type="checkbox" id="signupTerms" name="terms" />
+                <span class="custom-checkbox" aria-hidden="true"></span>
+                <span>Li e aceito os <a class="forgot-link" href="#termos">termos de uso</a></span>
+              </label>
+            </div>
+          </div>
+
+          <button class="submit-button" type="submit">
+            <span>Criar conta</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" />
+            </svg>
+          </button>
+          <p class="form-status" id="signupStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Voltar para o login -->
+        <div class="signup-block">
+          <p class="signup-text">
+            Já tem uma conta?
+            <a class="signup-link" href="index.html">Entrar no sistema</a>
+          </p>
+          <a class="signup-button" href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 12H5M11 18l-6-6 6-6" />
+            </svg>
+            <span>Voltar para o login</span>
+          </a>
+        </div>
+
+        <footer class="card-footer">
+          <span>Precisa de ajuda?</span>
+          <a href="#suporte">Fale com o suporte</a>
+        </footer>
+      </section>
+    </main>
+
+    <script src="storage.js" defer></script>
+    <script src="cadastro.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colégio Cristal Norte | Área do Aluno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="aluno.css" />
+  </head>
+  <body class="dashboard-body">
+    <!-- Fundo decorativo -->
+    <div class="background-scene" aria-hidden="true">
+      <div class="scene-sky"></div>
+      <div class="scene-building scene-building--left"></div>
+      <div class="scene-building scene-building--right"></div>
+      <div class="scene-trees"></div>
+      <div class="scene-path"></div>
+    </div>
+
+    <div class="student-layout">
+      <!-- Sidebar injetada via JS -->
+      <div id="studentSidebar"></div>
+
+      <!-- Conteúdo: cada rota substitui só este bloco -->
+      <main class="student-content" id="studentContent">
+        <!-- Preenchido por aluno.js -->
+      </main>
+    </div>
+
+    <script src="storage.js" defer></script>
+    <script src="aluno.js" defer></script>
+  </body>
+</html>

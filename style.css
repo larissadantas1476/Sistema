@@ -1,0 +1,762 @@
+/* ==========================================================================
+   Colégio Cristal Norte — estilos da tela de acesso
+   ========================================================================== */
+
+:root {
+  --beige-50: #fcf8f0;
+  --beige-100: #f6ecdc;
+  --beige-200: #edddc5;
+  --brown-500: #a77855;
+  --brown-700: #77513d;
+  --ink-900: #242321;
+  --ink-700: #44403c;
+  --ink-500: #817970;
+  --red-700: #9f2f2b;
+  --red-800: #872522;
+  --orange-500: #e47d29;
+  --orange-600: #c9651b;
+  --white: #ffffff;
+  --shadow: 0 22px 65px rgba(42, 26, 16, 0.26);
+  --radius-card: 22px;
+  --transition: 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #b9a47e;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--ink-900);
+  font-family: "DM Sans", Arial, sans-serif;
+  background: #b9a47e;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   Fundo externo desfocado
+   -------------------------------------------------------------------------- */
+
+.background-scene {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(108, 85, 59, 0.1), rgba(37, 48, 33, 0.3)),
+    #b9a47e;
+  filter: saturate(0.86);
+}
+
+.background-scene::before,
+.background-scene::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.background-scene::before {
+  inset: -10%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255, 243, 199, 0.64) 0 3%, transparent 22%),
+    radial-gradient(circle at 75% 18%, rgba(243, 219, 163, 0.72) 0 4%, transparent 25%),
+    radial-gradient(circle at 37% 57%, rgba(203, 168, 110, 0.5) 0 5%, transparent 20%),
+    radial-gradient(circle at 92% 67%, rgba(71, 90, 47, 0.56) 0 12%, transparent 29%);
+  filter: blur(26px);
+  transform: scale(1.1);
+}
+
+.background-scene::after {
+  inset: 0;
+  background: linear-gradient(90deg, rgba(61, 44, 32, 0.12), transparent 35%, rgba(41, 45, 27, 0.14));
+  backdrop-filter: blur(8px);
+}
+
+.scene-sky {
+  position: absolute;
+  inset: 0 0 47%;
+  background:
+    radial-gradient(ellipse at 18% 35%, rgba(255, 249, 214, 0.82) 0 8%, transparent 29%),
+    linear-gradient(155deg, #c8b998 0%, #d7c9a9 44%, #9d9878 100%);
+  filter: blur(16px);
+  transform: scale(1.06);
+}
+
+.scene-building {
+  position: absolute;
+  bottom: 30%;
+  width: 33vw;
+  height: 27vh;
+  min-height: 170px;
+  background: repeating-linear-gradient(90deg, rgba(100, 70, 48, 0.42) 0 5px, rgba(224, 201, 159, 0.38) 5px 24px), #ad8d68;
+  box-shadow: inset 0 -22px 0 rgba(66, 62, 43, 0.26);
+  filter: blur(9px);
+  opacity: 0.86;
+}
+
+.scene-building::after {
+  position: absolute;
+  right: 0;
+  bottom: -12%;
+  left: 0;
+  height: 13%;
+  background: rgba(54, 63, 40, 0.52);
+  content: "";
+}
+
+.scene-building--left {
+  left: -9vw;
+  transform: perspective(300px) rotateY(12deg) rotateZ(-1deg);
+}
+
+.scene-building--right {
+  right: -10vw;
+  bottom: 27%;
+  width: 39vw;
+  height: 30vh;
+  transform: perspective(300px) rotateY(-13deg) rotateZ(1deg);
+  opacity: 0.67;
+}
+
+.scene-trees {
+  position: absolute;
+  right: -5%;
+  bottom: -8%;
+  left: -5%;
+  height: 49%;
+  background:
+    radial-gradient(ellipse at 9% 73%, rgba(44, 67, 39, 0.83) 0 11%, transparent 12%),
+    radial-gradient(ellipse at 21% 66%, rgba(66, 86, 42, 0.78) 0 15%, transparent 16%),
+    radial-gradient(ellipse at 36% 72%, rgba(42, 67, 38, 0.87) 0 15%, transparent 16%),
+    radial-gradient(ellipse at 55% 67%, rgba(70, 91, 48, 0.75) 0 17%, transparent 18%),
+    radial-gradient(ellipse at 73% 70%, rgba(43, 68, 39, 0.84) 0 16%, transparent 17%),
+    radial-gradient(ellipse at 90% 72%, rgba(59, 79, 41, 0.84) 0 14%, transparent 15%),
+    linear-gradient(180deg, transparent 0 56%, rgba(46, 57, 35, 0.69) 56%);
+  filter: blur(13px);
+}
+
+.scene-path {
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  width: 34%;
+  height: 65%;
+  background: linear-gradient(168deg, rgba(198, 168, 120, 0.03), rgba(184, 145, 97, 0.48));
+  filter: blur(22px);
+  transform: translateX(-50%) perspective(400px) rotateX(44deg);
+}
+
+/* --------------------------------------------------------------------------
+   Área principal e cartão
+   -------------------------------------------------------------------------- */
+
+.page-shell {
+  display: grid;
+  min-height: 100vh;
+  padding: 40px 24px;
+  place-items: center;
+}
+
+.login-card {
+  width: min(100%, 488px);
+  padding: 42px 46px 28px;
+  border: 1px solid rgba(146, 42, 37, 0.66);
+  border-radius: var(--radius-card);
+  background: rgba(252, 248, 240, 0.97);
+  box-shadow: var(--shadow);
+}
+
+.brand-block {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Logo (imagem vinda da pasta do projeto)
+   -------------------------------------------------------------------------- */
+
+.brand-mark {
+  display: grid;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 12px;
+  place-items: center;
+}
+
+.brand-logo {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* Se a sua logo for escura e você quiser suavizar, descomente: */
+  /* filter: drop-shadow(0 4px 10px rgba(159, 47, 43, 0.18)); */
+}
+
+.brand-overline {
+  margin: 0 0 3px;
+  color: var(--brown-700);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.brand-block h1 {
+  margin: 0;
+  color: var(--red-700);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.brand-subtitle {
+  margin: 8px 0 0;
+  color: var(--ink-500);
+  font-size: 0.83rem;
+  letter-spacing: 0.01em;
+}
+
+.card-divider {
+  width: 100%;
+  height: 1px;
+  margin: 29px 0 27px;
+  background: var(--beige-200);
+}
+
+.form-section,
+.credentials-section {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.form-section legend {
+  padding: 0;
+  color: var(--ink-900);
+  font-size: 0.97rem;
+  font-weight: 700;
+}
+
+.section-description {
+  margin: 4px 0 15px;
+  color: var(--ink-500);
+  font-size: 0.79rem;
+}
+
+.field-message {
+  min-height: 16px;
+  margin: 5px 1px 0;
+  color: var(--red-700);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.credentials-section {
+  margin-top: 15px;
+}
+
+.field-group {
+  margin-bottom: 13px;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 13px;
+  display: grid;
+  color: #a49d93;
+  pointer-events: none;
+  place-items: center;
+}
+
+.input-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+}
+
+.input-wrapper input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 43px 0 42px;
+  border: 1px solid #3d3b37;
+  border-radius: 9px;
+  outline: none;
+  color: #f4eee4;
+  background: var(--ink-900);
+  font-size: 0.8rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input-wrapper input::placeholder {
+  color: #8c857c;
+  opacity: 1;
+}
+
+.input-wrapper input:hover {
+  border-color: #5d574f;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 3px rgba(228, 125, 41, 0.16);
+}
+
+.input-wrapper.has-error input {
+  border-color: #bd5d56;
+}
+
+/* --------------------------------------------------------------------------
+   Select de perfil
+   -------------------------------------------------------------------------- */
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-wrapper select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 42px 0 42px;
+  border: 1px solid #3d3b37;
+  border-radius: 9px;
+  outline: none;
+  color: #f4eee4;
+  background: var(--ink-900);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.select-wrapper select:hover {
+  border-color: #5d574f;
+}
+
+.select-wrapper select:focus {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 3px rgba(228, 125, 41, 0.16);
+}
+
+.select-wrapper select option {
+  color: var(--ink-900);
+  background: var(--beige-50);
+}
+
+.select-wrapper select option:disabled {
+  color: var(--ink-500);
+}
+
+.select-wrapper.has-error select {
+  border-color: #bd5d56;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 13px;
+  display: grid;
+  color: #a49d93;
+  pointer-events: none;
+  place-items: center;
+}
+
+.select-arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Senha
+   -------------------------------------------------------------------------- */
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  display: grid;
+  width: 29px;
+  height: 29px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  color: #8c857c;
+  background: transparent;
+  cursor: pointer;
+  place-items: center;
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+  color: #e4ddd4;
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.eye-icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.eye-icon--hidden {
+  display: none;
+}
+
+.password-toggle.is-visible .eye-icon--visible {
+  display: none;
+}
+
+.password-toggle.is-visible .eye-icon--hidden {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Linha de opções e botões
+   -------------------------------------------------------------------------- */
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 22px;
+}
+
+.remember-me {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-500);
+  cursor: pointer;
+  font-size: 0.72rem;
+}
+
+.remember-me input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #c7b9a8;
+  border-radius: 4px;
+  background: transparent;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.remember-me input:focus-visible + .custom-checkbox {
+  outline: 3px solid rgba(228, 125, 41, 0.2);
+}
+
+.remember-me input:checked + .custom-checkbox {
+  border-color: var(--orange-500);
+  background: var(--orange-500);
+}
+
+.remember-me input:checked + .custom-checkbox::after {
+  display: block;
+  width: 4px;
+  height: 8px;
+  margin: 1px 0 0 4px;
+  border: solid var(--white);
+  border-width: 0 1.5px 1.5px 0;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.forgot-link,
+.card-footer a {
+  color: var(--red-700);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.forgot-link:hover,
+.card-footer a:hover {
+  color: var(--red-800);
+  text-decoration: underline;
+}
+
+.submit-button {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--white);
+  background: var(--orange-500);
+  box-shadow: 0 7px 16px rgba(196, 91, 19, 0.19);
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 700;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.submit-button:hover {
+  background: var(--orange-600);
+  box-shadow: 0 9px 20px rgba(196, 91, 19, 0.3);
+  transform: translateY(-1px);
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid rgba(228, 125, 41, 0.35);
+  outline-offset: 3px;
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.submit-button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.form-status {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #39714a;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.form-status.is-error {
+  color: var(--red-700);
+}
+
+/* --------------------------------------------------------------------------
+   Bloco de cadastro
+   -------------------------------------------------------------------------- */
+
+.signup-block {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--beige-200);
+  text-align: center;
+}
+
+.signup-text {
+  margin: 0 0 12px;
+  color: var(--ink-500);
+  font-size: 0.78rem;
+}
+
+.signup-link {
+  color: var(--red-700);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.signup-link:hover {
+  color: var(--red-800);
+  text-decoration: underline;
+}
+
+.signup-button {
+  display: inline-flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 20px;
+  border: 1.5px solid var(--orange-500);
+  border-radius: 9px;
+  color: var(--orange-600);
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.signup-button:hover {
+  color: var(--white);
+  background: var(--orange-500);
+  transform: translateY(-1px);
+}
+
+.signup-button:focus-visible {
+  outline: 3px solid rgba(228, 125, 41, 0.35);
+  outline-offset: 3px;
+}
+
+.signup-button svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé do cartão
+   -------------------------------------------------------------------------- */
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 19px;
+  border-top: 1px solid var(--beige-200);
+  margin-top: 17px;
+  color: var(--ink-500);
+  font-size: 0.72rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsividade
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 540px) {
+  .page-shell {
+    padding: 24px 14px;
+  }
+
+  .login-card {
+    padding: 34px 24px 25px;
+    border-radius: 18px;
+  }
+
+  .card-divider {
+    margin: 24px 0 23px;
+  }
+
+  .brand-mark {
+    width: 92px;
+    height: 92px;
+  }
+
+  .scene-building {
+    width: 65vw;
+  }
+
+  .scene-building--right {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 390px) {
+  .login-card {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .brand-block h1 {
+    font-size: 1.75rem;
+  }
+
+  .brand-mark {
+    width: 84px;
+    height: 84px;
+  }
+
+  .form-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .forgot-link {
+    align-self: flex-end;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

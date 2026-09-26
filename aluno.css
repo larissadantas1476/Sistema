@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Colégio Cristal Norte — Área do Aluno (SPA)
+   Complementa style.css.
+   ========================================================================== */
+
+.dashboard-body { background: #b9a47e; }
+
+/* -------- Layout -------- */
+.student-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* -------- Sidebar -------- */
+.student-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 22px 16px;
+  color: #fcf8f0;
+  background: #242321;
+  border-right: 1px solid rgba(228, 125, 41, 0.35);
+}
+
+.student-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 16px;
+}
+
+.student-sidebar__brand img {
+  width: 42px; height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(252, 248, 240, 0.9);
+  padding: 4px;
+}
+
+.student-sidebar__title { display: flex; flex-direction: column; line-height: 1.15; }
+.student-sidebar__title span {
+  color: #f3a05a; font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.19em; text-transform: uppercase;
+}
+.student-sidebar__title strong {
+  color: #fcf8f0; font-family: "Playfair Display", Georgia, serif; font-size: 0.98rem;
+}
+
+.student-nav {
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 0; margin: 0; list-style: none;
+}
+
+.student-nav__section {
+  padding: 14px 10px 6px; color: #8c857c;
+  font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+
+.student-nav a {
+  display: flex; align-items: center; gap: 11px;
+  padding: 10px 12px; border-radius: 9px;
+  color: #e4ddd4; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.student-nav a:hover { color: #fcf8f0; background: rgba(228, 125, 41, 0.16); }
+
+.student-nav a.is-active {
+  color: var(--white); background: var(--orange-500);
+  box-shadow: 0 4px 14px rgba(196, 91, 19, 0.35);
+}
+
+.student-nav__icon {
+  display: grid; width: 22px; height: 22px;
+  flex-shrink: 0; place-items: center;
+}
+
+.student-nav__icon svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor;
+  stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8;
+}
+
+.student-sidebar__footer {
+  padding: 16px 6px 0; margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.student-sidebar__user { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+
+.student-sidebar__avatar {
+  display: grid; width: 36px; height: 36px; border-radius: 50%;
+  color: var(--white); background: var(--orange-500);
+  font-weight: 700; font-size: 0.85rem; place-items: center; flex-shrink: 0;
+}
+
+.student-sidebar__meta { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+.student-sidebar__name {
+  color: #fcf8f0; font-size: 0.8rem; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.student-sidebar__role {
+  color: #f3a05a; font-size: 0.66rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+.student-logout {
+  display: flex; width: 100%; align-items: center; justify-content: center;
+  gap: 6px; padding: 9px;
+  border: 1px solid rgba(228, 125, 41, 0.5); border-radius: 8px;
+  color: #f3a05a; background: transparent; cursor: pointer;
+  font-size: 0.76rem; font-weight: 700;
+  transition: background var(--transition), color var(--transition);
+}
+
+.student-logout:hover { color: var(--white); background: var(--orange-500); }
+
+.student-logout svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor;
+  stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.9;
+}
+
+/* -------- Conteúdo -------- */
+.student-content { padding: 26px 32px 60px; background: #b9a47e; }
+
+.student-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 20px 24px;
+  border: 1px solid rgba(146, 42, 37, 0.4); border-radius: 16px;
+  margin-bottom: 22px; background: rgba(252, 248, 240, 0.97);
+  box-shadow: 0 10px 26px rgba(42, 26, 16, 0.16);
+}
+
+.student-header h1 {
+  margin: 0; color: var(--red-700);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+}
+
+.student-header p { margin: 4px 0 0; color: var(--ink-500); font-size: 0.82rem; }
+.student-header__meta { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.student-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 7px 12px; border-radius: 999px;
+  color: var(--ink-700); background: var(--beige-100); font-size: 0.74rem;
+}
+.student-chip strong { color: var(--red-700); }
+
+/* -------- Cartões -------- */
+.student-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px; margin-bottom: 22px;
+}
+
+.student-card {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 18px 20px; border: 1px solid var(--beige-200);
+  border-radius: 14px; background: rgba(252, 248, 240, 0.97);
+  box-shadow: 0 8px 22px rgba(42, 26, 16, 0.12);
+}
+
+.student-card--accent {
+  border-color: rgba(228, 125, 41, 0.55);
+  background: linear-gradient(160deg, #fdf3e4, #fce9d3);
+}
+
+.student-card__label {
+  color: var(--ink-500); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.student-card__value {
+  color: var(--red-700); font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem; line-height: 1;
+}
+.student-card__hint { color: var(--ink-500); font-size: 0.72rem; }
+.student-card__hint em { color: var(--ink-700); font-style: normal; font-weight: 700; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 42px; padding: 10px 16px; border: 1px solid transparent;
+  border-radius: 10px; cursor: pointer; font-size: 0.78rem; font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--primary { color: #fff; background: var(--orange-500); box-shadow: 0 8px 18px rgba(228, 125, 41, 0.2); }
+.btn--primary:hover { background: var(--orange-600); }
+.btn--danger {
+  color: #fff; background: #d92d20; border-color: #d92d20;
+  box-shadow: 0 8px 18px rgba(217, 45, 32, 0.2);
+}
+.btn--danger:hover { background: #b32318; border-color: #b32318; }
+
+.student-actions {
+  display: flex; justify-content: flex-start; margin-top: 6px;
+}
+
+/* -------- Painéis -------- */
+.student-panel {
+  padding: 20px 22px; border: 1px solid var(--beige-200);
+  border-radius: 16px; background: rgba(252, 248, 240, 0.97);
+  box-shadow: 0 8px 22px rgba(42, 26, 16, 0.1); margin-bottom: 18px;
+}
+
+.password-card {
+  display: none; margin-top: 1.25rem; padding: 18px 20px;
+  border: 1px solid var(--beige-200); background: rgba(255,255,255,0.8);
+}
+
+.password-form {
+  display: grid; gap: 12px;
+}
+
+.password-form .field-group {
+  margin: 0;
+}
+
+.password-form input {
+  width: 100%; min-height: 44px; padding: 0 12px; border: 1px solid var(--beige-200);
+  border-radius: 10px; background: var(--white); color: var(--ink-900);
+  font-size: 0.82rem; outline: none;
+}
+
+.password-form input:focus {
+  border-color: var(--orange-500); box-shadow: 0 0 0 3px rgba(228,125,41,0.14);
+}
+
+.action-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+
+.action-banner__text {
+  flex: 1; min-width: 220px;
+}
+
+.action-banner__button {
+  white-space: nowrap;
+}
+
+.student-panel__header {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 10px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--beige-200);
+  margin-bottom: 14px;
+}
+
+.student-panel__header h2 {
+  margin: 0; color: var(--red-700);
+  font-family: "Playfair Display", Georgia, serif; font-size: 1.15rem;
+}
+
+.student-panel__note {
+  color: var(--ink-500); font-size: 0.68rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+.student-grid {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
+}
+.student-grid .student-panel { margin-bottom: 0; }
+
+/* -------- Info-list -------- */
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px 18px; margin: 0;
+}
+.info-list div { padding: 8px 0; border-bottom: 1px dashed var(--beige-200); }
+.info-list dt {
+  color: var(--ink-500); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.info-list dd { margin: 3px 0 0; color: var(--ink-900); font-size: 0.85rem; font-weight: 600; }
+
+/* -------- Chips -------- */
+.chip-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.chip-list li {
+  padding: 7px 13px; border-radius: 999px;
+  color: var(--red-700); background: var(--beige-100);
+  font-size: 0.76rem; font-weight: 700; border: 1px solid var(--beige-200);
+}
+
+/* -------- Professores -------- */
+.teacher-list { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.teacher-list li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border: 1px solid var(--beige-200);
+  border-radius: 10px; background: var(--beige-50);
+}
+.teacher-list__avatar {
+  display: grid; width: 36px; height: 36px; border-radius: 50%;
+  color: var(--white); background: var(--brown-500);
+  font-weight: 700; font-size: 0.85rem; place-items: center; flex-shrink: 0;
+}
+.teacher-list__info { display: flex; flex-direction: column; line-height: 1.25; }
+.teacher-list__name { color: var(--ink-900); font-size: 0.85rem; font-weight: 700; }
+.teacher-list__subject { color: var(--ink-500); font-size: 0.72rem; }
+
+/* -------- Tabelas -------- */
+.table-wrapper {
+  width: 100%; overflow-x: auto;
+  border: 1px solid var(--beige-200); border-radius: 10px;
+}
+.data-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.8rem; background: var(--white);
+}
+.data-table th, .data-table td {
+  padding: 10px 12px; text-align: left;
+  border-bottom: 1px solid var(--beige-100); white-space: nowrap;
+}
+.data-table th {
+  color: var(--ink-700); background: var(--beige-100);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.data-table tbody tr:hover { background: var(--beige-50); }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+
+/* -------- Badges -------- */
+.badge {
+  display: inline-block; padding: 3px 9px;
+  border-radius: 999px; font-size: 0.66rem; font-weight: 700;
+}
+.badge--ok     { color: #2f6b3f; background: #e2f1e6; }
+.badge--warn   { color: #8a5a10; background: #fbeed0; }
+.badge--danger { color: var(--red-800); background: #f7dcd9; }
+.badge--info   { color: var(--brown-700); background: var(--beige-100); }
+
+/* -------- Progresso -------- */
+.progress-block { margin-bottom: 16px; }
+.progress-info {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 6px; color: var(--ink-700);
+  font-size: 0.78rem; font-weight: 700;
+}
+.progress-info strong { color: var(--red-700); font-size: 1.05rem; }
+.progress-bar {
+  width: 100%; height: 10px; border-radius: 999px;
+  background: var(--beige-200); overflow: hidden;
+}
+.progress-bar__fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--orange-500), var(--orange-600));
+  transition: width 500ms ease;
+}
+
+/* -------- Listas -------- */
+.absence-list, .activity-list, .announcement-list, .occurrence-list {
+  display: grid; gap: 10px; padding: 0; margin: 0; list-style: none;
+}
+.absence-list li, .activity-list li, .announcement-list li, .occurrence-list li {
+  display: flex; gap: 14px; padding: 12px 14px;
+  border: 1px solid var(--beige-200); border-left: 4px solid var(--orange-500);
+  border-radius: 10px; background: var(--beige-50);
+}
+.absence-list li     { border-left-color: #bd5d56; }
+.announcement-list li{ border-left-color: var(--red-700); }
+.occurrence-list li  { border-left-color: var(--brown-500); }
+
+.list-item__date {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 56px; padding: 4px 6px; border-radius: 8px;
+  color: var(--red-700); background: var(--beige-100);
+  font-weight: 700; line-height: 1;
+}
+.list-item__date strong { font-size: 1.05rem; }
+.list-item__date span {
+  color: var(--ink-500); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; margin-top: 3px;
+}
+.list-item__body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.list-item__title { color: var(--ink-900); font-size: 0.86rem; font-weight: 700; }
+.list-item__desc  { color: var(--ink-500); font-size: 0.78rem; line-height: 1.4; }
+.list-item__tag {
+  align-self: flex-start; padding: 2px 8px; border-radius: 999px;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.list-item__tag--ok     { color: #2f6b3f; background: #e2f1e6; }
+.list-item__tag--warn   { color: #8a5a10; background: #fbeed0; }
+.list-item__tag--danger { color: var(--red-800); background: #f7dcd9; }
+.list-item__tag--info   { color: var(--brown-700); background: var(--beige-100); }
+
+/* -------- Status -------- */
+.status-banner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border-radius: 12px;
+  border: 1px solid var(--beige-200); background: var(--beige-50);
+}
+.status-banner__dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--orange-500);
+  box-shadow: 0 0 0 5px rgba(228, 125, 41, 0.18);
+  flex-shrink: 0;
+}
+.status-banner--ok .status-banner__dot     { background: #4a9d5f; box-shadow: 0 0 0 5px rgba(74, 157, 95, 0.18); }
+.status-banner--warn .status-banner__dot   { background: #d19327; box-shadow: 0 0 0 5px rgba(209, 147, 39, 0.18); }
+.status-banner--danger .status-banner__dot { background: #bd5d56; box-shadow: 0 0 0 5px rgba(189, 93, 86, 0.18); }
+.status-banner strong { display: block; color: var(--ink-900); font-size: 0.95rem; }
+.status-banner p { margin: 3px 0 0; color: var(--ink-500); font-size: 0.78rem; }
+
+/* -------- Empty -------- */
+.empty-state {
+  padding: 30px 20px; text-align: center;
+  color: var(--ink-500); font-size: 0.85rem;
+}
+
+/* -------- Responsivo -------- */
+@media (max-width: 900px) {
+  .student-layout { grid-template-columns: 1fr; }
+  .student-sidebar { position: relative; height: auto; max-height: none; }
+  .student-nav { flex-direction: row; flex-wrap: wrap; }
+  .student-nav__section { width: 100%; }
+  .student-content { padding: 20px 16px 40px; }
+  .student-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .info-list { grid-template-columns: 1fr; }
+  .student-cards { grid-template-columns: 1fr 1fr; }
+}

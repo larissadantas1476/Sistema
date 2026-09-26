@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colégio Cristal Norte | Área do Professor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="professor.css" />
+  </head>
+  <body class="dashboard-body">
+    <!-- Fundo decorativo -->
+    <div class="background-scene" aria-hidden="true">
+      <div class="scene-sky"></div>
+      <div class="scene-building scene-building--left"></div>
+      <div class="scene-building scene-building--right"></div>
+      <div class="scene-trees"></div>
+      <div class="scene-path"></div>
+    </div>
+
+    <div class="teacher-layout">
+      <!-- Sidebar injetada via JS -->
+      <div id="teacherSidebar"></div>
+
+      <!-- Conteúdo dinâmico -->
+      <main class="teacher-content" id="teacherContent"></main>
+    </div>
+
+    <!-- Modal global -->
+    <div class="modal-backdrop" id="teacherModal">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="teacherModalTitle">
+        <header class="modal__header">
+          <h2 id="teacherModalTitle">—</h2>
+          <button class="modal__close" type="button" id="teacherModalClose" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </header>
+        <div class="modal__body" id="teacherModalBody"></div>
+        <footer class="modal__footer" id="teacherModalFooter"></footer>
+      </div>
+    </div>
+
+    <script src="storage.js" defer></script>
+    <script src="professor.js" defer></script>
+  </body>
+</html>
